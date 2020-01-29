@@ -89,17 +89,22 @@ class Home extends Component {
         <p>Counters:</p>
 
         <ul>
-          { this.state.counters.map((counter, i) => (
+          {this.state.counters.map((counter, i) => (
             <li key={i}>
               <span>{counter.count} </span>
               <button onClick={() => this.incrementCounter(i)}>+</button>
               <button onClick={() => this.decrementCounter(i)}>-</button>
               <button onClick={() => this.deleteCounter(i)}>x</button>
             </li>
-          )) }
+          ))}
         </ul>
 
         <button onClick={this.newCounter}>New counter</button>
+
+        <br />
+
+        <a href="https://github.com/login/oauth/authorize?client_id=dad1d3e3b4cc6feb04af">Signin with GitHub!</a>
+
       </>
     );
   }

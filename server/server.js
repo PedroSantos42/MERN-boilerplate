@@ -11,14 +11,20 @@ const config = require('../config/config');
 const webpackConfig = require('../webpack.config');
 
 const isDev = process.env.NODE_ENV !== 'production';
-const port  = process.env.PORT || 8080;
+const port = process.env.PORT || 9000;
 
 
 // Configuration
 // ================================================================================================
 
 // Set up Mongoose
-mongoose.connect(isDev ? config.db_dev : config.db);
+mongoose.connect('mongodb://pedroabsdev42:mongo123@localhost:27017/herois', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+}, function (error) {
+  if (!error) return;
+  console.log('Falha na conexão!', error)
+});
 mongoose.Promise = global.Promise;
 
 const app = express();
